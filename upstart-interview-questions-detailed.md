@@ -157,6 +157,14 @@ arr = [1, 1, 2] → Output: 2 (Each 1 is counted because 2 exists).
 arr = [1, 1, 3, 3, 5, 5, 7, 7] → Output: 0.
 ---
 
+### 9
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+Example 1
+Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+Output: 6
+Explanation: The contiguous subarray [4, -1, 2, 1] has the largest sum of 6.
+---
+
 ## Medium Problems (9 total)
 
 ### 1. Search Suggestions System (LeetCode #1268) - 82% Frequency
