@@ -45,27 +45,20 @@ public class CanPlaceFlowers {
      * @return true if n flowers can be planted, false otherwise
      */
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        // find the first 1, then you know the next one can be one
-        // find the zeros before the first 1, then count/2, 1's can be planted
-        int start=-1, zeros = 0;
+        // iterate through the array
+        // if it's a zero, check if I could plant:
+        // both left and right index are zero, if that's the case: plant the flower, increase count
+        // return count >= n
+        int count = 0;
         for (int i=0; i< flowerbed.length; i++) {
-            if (flowerbed[i] == 1) {
-                start = i;
-                break;
-            } else {
-                zeros++;
-            }
-        }
+            if (flowerbed[i]==0) {
+                boolean isLeftZero = (i == 0) || flowerbed[i-1] == 0;
+                boolean isRightZero = (i== flowerbed.length-1) || flowerbed[i+1]==0;
 
-        int count=0;
-        if (start == -1) {
-            count = (zeros+1)/2;
-            return count >= n;
-        }
-
-        for (int i = start; i< flowerbed.length; i++) {
-            if ((i-start) % 2 ==0 && flowerbed[i-start] ==0) {
-                count ++;
+                if (isLeftZero && isRightZero) {
+                    flowerbed[i]=1;
+                    count++;
+                }
             }
         }
 
