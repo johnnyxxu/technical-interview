@@ -51,3 +51,36 @@ The repository includes `upstart-interview-questions.md` and `upstart-interview-
 - Interview format: typically 1 medium + 1 hard problem in 1-hour sessions
 
 When implementing solutions, reference these files to understand the problem context and difficulty level.
+
+## Workflow for Creating New Problem Solutions
+
+When the user requests to create a new problem solution, follow this pattern:
+
+### 1. Create Solution Class
+- **Location**: `src/main/java/upstart/[ProblemName].java`
+- **Content**:
+  - Include comprehensive JavaDoc with full problem description from the detailed questions file
+  - Add problem metadata: LeetCode number, difficulty, frequency
+  - Include examples, constraints, and key approaches
+  - Provide empty method stub with TODO comment
+  - Method should have proper parameter and return types
+
+### 2. Create Test Class
+- **Location**: `src/test/java/upstart/[ProblemName]Test.java`
+- **Coverage**: Include 15-20 comprehensive test cases covering:
+  - Examples from the problem statement
+  - Edge cases (empty arrays, null inputs, single elements)
+  - Boundary conditions (min/max values, exactly at thresholds)
+  - Data pattern variations (duplicates, negatives, zeros, large numbers)
+  - Position variations (element at start, middle, end, scattered)
+- **Naming**: Use descriptive test names like `testExample1_SimpleMajority()` or `testEdgeCase_SingleElement()`
+- **Assertions**: Include meaningful assertion messages
+
+### 3. Stage Files in Git
+After creating both files, stage them:
+```bash
+git add src/main/java/upstart/[ProblemName].java src/test/java/upstart/[ProblemName]Test.java
+```
+
+### 4. Reference Materials
+Always check `upstart-interview-questions-detailed.md` for the full problem description before creating the solution class.
